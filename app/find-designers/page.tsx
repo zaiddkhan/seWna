@@ -4,7 +4,6 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { LogOut } from "lucide-react";
-import Image from "next/image";
 
 // Demo designer portfolio data
 const demoDesigners = [
@@ -164,11 +163,10 @@ function FindDesignersPageContent() {
               key={`${designer.id}-${index}`}
               className="w-[350px] h-[250px] flex-shrink-0 relative group cursor-pointer rounded-2xl overflow-hidden"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={designer.image}
                 alt={designer.name}
-                width={350}
-                height={250}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -208,11 +206,10 @@ function FindDesignersPageContent() {
               key={`${designer.id}-${index}`}
               className="w-[350px] h-[250px] flex-shrink-0 relative group cursor-pointer rounded-2xl overflow-hidden"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={designer.image}
                 alt={designer.name}
-                width={350}
-                height={250}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

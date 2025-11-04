@@ -37,7 +37,7 @@ export default function BrowseDesignersPage() {
 
           <div className="bg-gray-50 rounded-lg p-6 mb-8">
             <p className="text-gray-700 font-poppins mb-4">
-              We're building an amazing marketplace where you can:
+              We&apos;re building an amazing marketplace where you can:
             </p>
             <ul className="text-left space-y-2 max-w-md mx-auto">
               <li className="flex items-start gap-2">

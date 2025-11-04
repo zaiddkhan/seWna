@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 
 const ScrambleText = () => {
@@ -9,19 +9,19 @@ const ScrambleText = () => {
   const textRef = useRef<HTMLSpanElement>(null);
   const cursorRef = useRef<HTMLSpanElement>(null);
 
-  const titlePhrases = [
+  const titlePhrases = useMemo(() => [
     ["Your style,", "crafted."],
     ["Your vision,", "realized."],
     ["Your design,", "perfected."],
     ["Your fashion,", "personalized."],
-  ];
+  ], []);
 
-  const phrases = [
+  const phrases = useMemo(() => [
     "Connect with independent designers.",
     "Create your custom outfit.",
     "Express your unique style.",
     "Fashion tailored to you.",
-  ];
+  ], []);
 
   useEffect(() => {
     if (!titleRef1.current || !titleRef2.current || !textRef.current || !cursorRef.current) return;
@@ -127,7 +127,7 @@ const ScrambleText = () => {
     return () => {
       clearInterval(titleInterval);
     };
-  }, []);
+  }, [titlePhrases, phrases]);
 
   return (
     <div className="absolute bottom-8 left-6 md:bottom-12 md:left-8 z-50 max-w-3xl">

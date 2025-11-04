@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { User, FileText, Link2, Settings, X, CheckCircle2, LogOut, Upload } from "lucide-react";
@@ -17,7 +17,7 @@ const tabs = [
   { id: "preferences", label: "Preferences", icon: Settings },
 ];
 
-export default function PortfolioPage() {
+function PortfolioPageContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const name = searchParams.get("name") || "there";
@@ -396,6 +396,7 @@ export default function PortfolioPage() {
                   <div className="relative">
                     <div className="w-32 h-32 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center border-4 border-white shadow-lg">
                       {portfolioData.profilePictureUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={portfolioData.profilePictureUrl}
                           alt="Profile"
@@ -705,5 +706,13 @@ export default function PortfolioPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <PortfolioPageContent />
+    </Suspense>
   );
 }

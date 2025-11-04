@@ -59,6 +59,7 @@ export interface PortfolioFormData {
   professionalBio?: string;
   skills?: string;
   portfolioUrl?: string;
+  profilePictureUrl?: string;
   themeColor?: string;
   location?: string;
   timezone?: string;

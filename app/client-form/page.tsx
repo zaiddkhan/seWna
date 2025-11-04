@@ -394,6 +394,7 @@ export default function ClientForm() {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                       {formData.inspirationImages.map((image, index) => (
                         <div key={index} className="relative group">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={image}
                             alt={`Inspiration ${index + 1}`}
